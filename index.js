@@ -162,19 +162,19 @@ function swapMinMax(array) {
 	let minIndex = 0;
 	let maxIndex = 0;
 
-	for (i = 0; i < array.length; i++) {
+	for (i = 0; i < Array(array.length); i++) {
 		if (array > max) {
 			// return max(array), maxIndex[index];
-			max = i;
-			maxIndex = i;
+			// max[i] = maxIndex[i];
+			return max[i], maxIndex[i];
 		} else if (array < min) {
 			// return min(array), minIndex[index];
-			min = i;
-			minIndex = i;
+			// min[i] = minIndex[i];
+			return min[i], minIndex[i];
 		}
 	}
-	let [a, b, c, d, e] = array;
 
+	let [a, b, c, d, e] = array;
 	return a, b, c, d, e;
 }
 
@@ -211,6 +211,13 @@ function replaceNumbers(arr) {
 	// Якщо число більше за 10, додаємо рядок "Greater than 10" до масиву результату
 	// Якщо число менше або дорівнює 10, додаємо рядок "Less than or equal to 10" до масиву результату
 	// Повертаємо масив результату
+	// let startArr = [];
+	// if (arr > 10) {
+	// 	arr = "Greater than 10";
+	// } else if (arr <= 10) {
+	// 	arr = "Less than or equal to 10";
+	// }
+	// return startArr;
 }
 
 console.log("Завдання 13 ====================================");
