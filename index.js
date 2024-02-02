@@ -157,25 +157,24 @@ function swapMinMax(array) {
 	// Умова else if перевіряє, чи є поточний елемент масиву меншим за поточне мінімальне значення. Якщо це так, оновлюємо min з поточним елементом масиву та minIndex з поточним індексом.
 	// Застосовуємо деструктуризацію масиву для обміну місцями мінімального та максимального значення в масиві.
 	// Функція повертає масив, в якому мінімальне та максимальне значення обміняні місцями.
-	let min = array;
-	let max = array;
+	let min = array[0];
+	let max = array[0];
 	let minIndex = 0;
 	let maxIndex = 0;
 
-	for (i = 0; i < Array(array.length); i++) {
-		if (array > max) {
-			// return max(array), maxIndex[index];
-			// max[i] = maxIndex[i];
-			return max[i], maxIndex[i];
-		} else if (array < min) {
-			// return min(array), minIndex[index];
-			// min[i] = minIndex[i];
-			return min[i], minIndex[i];
+	for (let i = 0; i < array.length; i++) {
+		if (array[i] > max) {
+			max = array[i];
+			maxIndex = i;
+		} else if (array[i] < min) {
+			min = array[i];
+			minIndex = i;
 		}
 	}
 
-	let [a, b, c, d, e] = array;
-	return a, b, c, d, e;
+	[array[minIndex], array[maxIndex]] = [array[maxIndex], array[minIndex]];
+
+	return array;
 }
 
 console.log("Завдання 10 ====================================");
@@ -189,6 +188,15 @@ function getEvenNumbers(arr) {
 	// Перевіряємо чи є число парним
 	// Якщо так, додаємо його до масиву результату
 	// Повертаємо масив результату
+	let newArr = [];
+
+	for (let i = 0; i < arr.length; i++) {
+		if (i % 2) {
+			newArr = [...newArr, arr[i]];
+		}
+	}
+
+	return newArr;
 }
 console.log("Завдання 11 ====================================");
 console.log(getEvenNumbers([1, 2, 3, 4, 5, 6])); // Виведе [2, 4, 6]
@@ -199,6 +207,13 @@ function multiplyByIndex(arr) {
 	// Проходимо через кожен елемент вхідного масиву
 	// Помножуємо число на його індекс і додаємо до масиву результату
 	// Повертаємо масив результату
+	let newArr = [];
+
+	for (let i = 0; i < arr.length; i++) {
+		newArr = [...newArr, arr[i] * i];
+	}
+
+	return newArr;
 }
 console.log("Завдання 12 ====================================");
 console.log(multiplyByIndex([1, 2, 3, 4, 5])); // Виведе [0, 2, 6, 12, 20]
@@ -218,6 +233,17 @@ function replaceNumbers(arr) {
 	// 	arr = "Less than or equal to 10";
 	// }
 	// return startArr;
+	let result = [];
+
+	for (let i = 0; i < arr.length; i++) {
+		if (arr[i] > 10) {
+			result = [...result, "Greater than 10"];
+		} else {
+			result = [...result, "Less than or equal to 10"];
+		}
+	}
+
+	return result;
 }
 
 console.log("Завдання 13 ====================================");
